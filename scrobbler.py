@@ -12,6 +12,8 @@ def diff_itunes(old, new):
         if count not in new[track]:
             continue
         if track in old:
+            if count not in old[track]:
+                old[track][count] = 0
             if old[track][count] == new[track][count]:
                 continue
             diff[track] = new[track]
