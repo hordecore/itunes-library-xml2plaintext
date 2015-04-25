@@ -3,7 +3,7 @@ __author__ = 'oleg'
 
 import plistlib
 from lastfm import scrobble_them
-
+from twitter import top_of_diff
 
 def diff_itunes(old, new):
     diff = {}
@@ -28,6 +28,6 @@ def main():
     track_dict_new = plistlib.readPlist('itunes_new.xml')['Tracks']
     track_dict_diff = diff_itunes(track_dict_old, track_dict_new)
     scrobble_them(track_dict_diff)
-
+    top_of_diff(track_dict_diff)
 
 main()
